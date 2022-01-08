@@ -1,42 +1,21 @@
 import express, { Router } from 'express';
 import morgan from 'morgan';//미들웨어 사용할때 유용함
+import globalRouter from './routers/globalRouter';
+import usersRouter from './routers/userRouter';
+import videoRouter from './routers/videoRouter';
+
 
 const PORT = 4000;
 
 const app = express();
 const logger = morgan("dev");//morgan라이브러리는 get,path, status code이 모든정보를 가지고 있다.
 app.use(logger);
-
-const globalRouter = express.Router();//글로벌 라우터
-const handleHome = (req,res) => res.send("Home");
-globalRouter.get("/", handleHome);//app.get대신 router.get을 사용한다.
-
-
-const usersRouter = express.Router();
-const handleEditUser = (req, res) => res.send("Users");
-usersRouter.get("/edit", handleEditUser);
-
-
-const videoRouter = express.Router();
-const handleWatchVideo = (req, res) => res.send("Watch Video");
-videoRouter.get("/watch", handleWatchVideo);
-
+`-`
 
 
 app.use("/", globalRouter);
 app.use("/users", usersRouter);
 app.use("/videos", videoRouter);
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -81,4 +60,4 @@ const handleListening = () => console.log(`server listenting on port http://loca
 
 app.listen(PORT, handleListening); //서버가 사람들이 뭔가를 요청할 때까지 기다리게 해준다. // 4000은 포트번호 handleListening은 콜백함수
 
-//4.0부터 다시보기
+//4.7부터 다시보기

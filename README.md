@@ -5,14 +5,15 @@
 / => Home
 /join -> Join
 /login -> Login
-/serch -> Search
---> 글로벌 라우터
+/search -> Search
 
-/users/edit -> Edit user
-/users/delete -> Delete user
+/users/:id -> See Profile
+/users/logout -> Log Out
+/users/edit -> Edit MY Profile
+/users/delete -> Delete MY Profile
+!유저로 로그인 했으면 내 프로필만 eidt하고 delete할 수 있다.
 
-/video/watch -> Watch Video
-/video/edit -> Edit Video
-/video/delete -> Delete Video
-/video/comment -> comment on a video
-/video/comments/delete -> Delete A Comment of a Video
+/video/:id -> See Video
+/video/:id/edit -> Edit Video
+/video/:id/delete -> Delete Video
+/video/upload -> Upload Video
