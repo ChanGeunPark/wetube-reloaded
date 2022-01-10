@@ -7,12 +7,14 @@ import videoRouter from './routers/videoRouter';
 
 const PORT = 4000;
 
+console.log(process.cwd());//서버를 기동하는 파일의 위치에 따라 결정된다. // 어디서 노드를 부르고 있는지에 따라 결정된다.
+
 const app = express();
 const logger = morgan("dev");//morgan라이브러리는 get,path, status code이 모든정보를 가지고 있다.
+
+app.set("view engine","pug");//view엔진을 pug로 사용하겠다. (템플릿 엔진)
+app.set("views",process.cwd() + "/src/views")//views의 설정을 바꿔서 src안에있는 views를 보여주겠다고 변경함
 app.use(logger);
-`-`
-
-
 app.use("/", globalRouter);
 app.use("/users", usersRouter);
 app.use("/videos", videoRouter);
@@ -60,4 +62,4 @@ const handleListening = () => console.log(`server listenting on port http://loca
 
 app.listen(PORT, handleListening); //서버가 사람들이 뭔가를 요청할 때까지 기다리게 해준다. // 4000은 포트번호 handleListening은 콜백함수
 
-//4.7부터 다시보기
+//5.7부터 다시보기
