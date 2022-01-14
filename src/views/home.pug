@@ -1,5 +1,14 @@
 extends base.pug 
+include mixins/video
+
 
 block content
     
     h2 Welcome here you will see the trending videos
+    
+    each potato in videos
+        +video(potato)
+        //- ajax같은 형식으로 video라는 mixins에 데이터를 보내준다. 위에 inclued를 시켜줘야한다.
+    else  
+        div Sorry nothing found.
+    

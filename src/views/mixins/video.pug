@@ -1,0 +1,9 @@
+mixin video(info)
+    //- video를 오브젝트로 만들어준다. info는 mixin이 받게 될 데이터를 자칭한다.
+    div
+        h4=info.title
+        ul
+            li #{info.rating}/5.
+            li #{info.comments} comments.
+            li Posted #{createdAt}.
+            li #{info.views} views.
